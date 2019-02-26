@@ -4,7 +4,7 @@
   "description": "Application for connecting with Git's API ",
   "main": "index.js",
   "scripts": {
-    "test": "node server.js"
+    "test": "set PORT=8000 && node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GabyCS/test-localadventures-back/issues"
   },
-  "homepage": "https://github.com/GabyCS/test-localadventures-back#readme"
+  "homepage": "https://github.com/GabyCS/test-localadventures-back#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
