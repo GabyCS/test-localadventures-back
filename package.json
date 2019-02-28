@@ -4,7 +4,8 @@
   "description": "Application for connecting with Git's API ",
   "main": "index.js",
   "scripts": {
-    "test": "set PORT=8000 && node server.js"
+    "test": "set PORT=8000 && node server.js",
+    "start": "set PORT=8000 && node server.js"
   },
   "repository": {
     "type": "git",
