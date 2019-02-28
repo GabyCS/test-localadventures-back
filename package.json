@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/GabyCS/test-localadventures-back#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "octonode": "^0.9.5"
   }
