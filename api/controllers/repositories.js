@@ -14,4 +14,26 @@ const getRepos = (search, page) => {
         return err;
     })
 }
-module.exports = { getRepos };
+
+const getInfoRepo = (owner, nameRepo) => {
+    return new Promise((resolve, reject) => {
+        getRepositories.getInfoRepo(owner, nameRepo, (err, info) => {
+            if(err){reject(err)};
+            resolve(info);
+        })
+    }).then((info) => {
+        return new Promise((resolve, reject) => {
+            getRepositories.getBranchesRepo(owner, nameRepo, (err, brnaches) => {
+                if(err){reject(err)};
+                resolve({info,branches});
+            })
+        })
+    })
+    .then((res) => {
+        return res;
+    })
+    .catch((err) => {
+        return err;
+    })
+}
+module.exports = { getRepos, getInfoRepo };

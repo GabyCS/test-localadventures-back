@@ -13,4 +13,18 @@ const getRepos = (search, page, cb) => {
         })
 }
 
-module.exports = { getRepos };
+const getInfoRepo = (owner, nameRepo, cb) => {
+    let ghrepo = client.repo(owner+"/"+nameRepo);
+    return ghrepo.info((err, res) => {
+            cb(err, res);
+        })
+}
+
+const getBranchesRepo = (owner, nameRepo, cb) => {
+    let ghrepo = client.repo(owner+"/"+nameRepo);
+    return ghrepo.branches((err, res) => {
+            cb(err, res);
+        })
+}
+
+module.exports = { getRepos, getInfoRepo, getBranchesRepo };

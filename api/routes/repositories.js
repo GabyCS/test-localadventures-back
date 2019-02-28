@@ -12,8 +12,14 @@ repositories.get('/:search/:page',(_req, _res, next) => {
     
 })
 
-repositories.get('/:idRepo', (_req, _res, next) => {
-    _res.send("It's working, i have a  repo ID "+_req.params.idRepo);
+repositories.get('/info/:owner/:nameRepo', (_req, _res, next) => {
+    reposActions.getInfoRepo(_req.params.owner, _req.params.nameRepo)
+        .then((res) => {
+            _res.send(res).status(200);
+        })
+        .catch((err) => {
+            _res.send(err).status(500);
+        })
 })
 
 module.exports = repositories;
