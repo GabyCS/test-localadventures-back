@@ -23,7 +23,7 @@ const getInfoRepo = (owner, nameRepo) => {
         })
     }).then((info) => {
         return new Promise((resolve, reject) => {
-            getRepositories.getBranchesRepo(owner, nameRepo, (err, brnaches) => {
+            getRepositories.getBranchesRepo(owner, nameRepo, (err, branches) => {
                 if(err){reject(err)};
                 resolve({info,branches});
             })
@@ -36,4 +36,18 @@ const getInfoRepo = (owner, nameRepo) => {
         return err;
     })
 }
-module.exports = { getRepos, getInfoRepo };
+
+const getCommitsBranch = (owner, nameRepo, branch) => {
+    return new Promise((resolve, reject) => {
+        getRepositories.getCommitsBranch(owner, nameRepo, branch, (err, commits) => {
+            if(err){reject(err)};
+            resolve(commits);
+        })
+    }).then((res) => {
+        return res;
+    })
+    .catch((err) => {
+        return err;
+    })
+}
+module.exports = { getRepos, getInfoRepo, getCommitsBranch };
