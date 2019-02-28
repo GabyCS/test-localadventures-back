@@ -7,8 +7,10 @@ routes.get('/', (_req, _res, next) => {
 routes.get('/repositories/:search/:page',(_req, res) => {
     reposActions.getRepos(_req.params.search, _req.params.page)
         .then((repos) => {
-            res.header("Access-Control-Allow-Origin", "*");
-		    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            res.header('Access-Control-Allow-Origin', 'https://api-test-git.herokuapp.com/');
+            res.header('Access-Control-Allow-Credentials', true);
+            res.header('Access-Control-Allow-Methods', 'GET');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
             res.status(200).send(repos);
         })
         .catch((err) => {
@@ -20,8 +22,10 @@ routes.get('/repositories/:search/:page',(_req, res) => {
 routes.get('/repositories/info/:owner/:nameRepo', (_req, res) => {
     reposActions.getInfoRepo(_req.params.owner, _req.params.nameRepo)
         .then((repo) => {
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            res.header('Access-Control-Allow-Origin', 'https://api-test-git.herokuapp.com/');
+            res.header('Access-Control-Allow-Credentials', true);
+            res.header('Access-Control-Allow-Methods', 'GET');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
             res.status(200).send(repo);
         })
         .catch((err) => {
@@ -32,8 +36,10 @@ routes.get('/repositories/info/:owner/:nameRepo', (_req, res) => {
 routes.get('/repositories/info/:owner/:nameRepo/:branch/commits', (_req, res) => {
     reposActions.getCommitsBranch(_req.params.owner, _req.params.nameRepo, _req.params.branch)
         .then((commits) => {
-            res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            res.header('Access-Control-Allow-Origin', 'https://api-test-git.herokuapp.com/');
+            res.header('Access-Control-Allow-Credentials', true);
+            res.header('Access-Control-Allow-Methods', 'GET');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
             res.status(200).send(commits);
         })
         .catch((err) => {
